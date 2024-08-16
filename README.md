@@ -15,7 +15,7 @@ Banco de Dados:
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
   
 Frameworks e Bibliotecas:   
-![Eclipse](https://img.shields.io/badge/Eclipse-FE7A16.svg?style=for-the-badge&logo=Eclipse&logoColor=white) ![JBoss](https://img.shields.io/badge/JBoss-FE7A16.svg?style=for-the-badge&logo=JBoss&logoColor=white) ![JPA](https://img.shields.io/badge/JPA-FE7A16.svg?style=for-the-badge&logo=JPA&logoColor=white)
+![Eclipse](https://img.shields.io/badge/Eclipse-FE7A16.svg?style=for-the-badge&logo=Eclipse&logoColor=white) ![JBoss](https://img.shields.io/badge/JBoss-FE7A16.svg?style=for-the-badge&logo=JBoss&logoColor=white) ![JPA](https://img.shields.io/badge/JPA-FE7A16.svg?style=for-the-badge&logo=JPA&logoColor=white) ![WildFly](https://img.shields.io/badge/WildFly-FE7A16.svg?style=for-the-badge&logo=Wildfly&logoColor=white)
  
 ## Funcionalidades
 Gerenciamento de Funcionários: Adicionar, editar e excluir registros de funcionários.  
