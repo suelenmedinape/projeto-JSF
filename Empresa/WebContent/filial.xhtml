@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head>   
+<body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome: " for="nome" />
+			<h:inputText value="#{filialBean.filial.nome}" id="nome" required="true"/>
+			<h:outputLabel value="CNPJ:  " for="cnpj" />
+			<h:inputText value="#{filialBean.filial.cnpj}" id="cnpj" required="true">
+				<f:validateLength minimum="14" maximum="14"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Logradouro: " for="logradouro" />
+			<h:inputText value="#{filialBean.filial.endereco.logradouro}" id="logradouro" required="true"/>
+			<h:outputLabel value="Numero:  " for="numero" />
+			<h:inputText value="#{filialBean.filial.endereco.numero}" id="numero" required="true"/>
+			<h:outputLabel value="Bairro:  " for="bairro" />
+			<h:inputText value="#{filialBean.filial.endereco.bairro}" id="bairro" required="true"/>
+			<h:outputLabel value="Cidade:  " for="cidade" />
+			<h:inputText value="#{filialBean.filial.endereco.cidade}" id="cidade" required="true"/>
+			<h:outputLabel value="CEP:  " for="cep" />
+			<h:inputText value="#{filialBean.filial.endereco.cep}" id="cep" required="true">
+				<f:validateLength minimum="8" maximum="8"/>
+			</h:inputText>
+			
+			<h:commandButton action="#{filialBean.gravar()}" value="Gravar Filial" rendered="#{!filialBean.edicao}" />
+			<h:commandButton action="#{filialBean.atualizar()}" value="Atualizar Filial" rendered="#{filialBean.edicao}" />
+		</h:panelGrid>
+	</h:form>
+	
+	<h:messages />
+	
+	<h:form>
+		<h:dataTable value="#{filialBean.filiais}" var="filAtual" border="1">
+			<h:column>
+				<f:facet name="header"> Nome </f:facet>
+				<h:outputText value="#{filAtual.nome}" />
+			</h:column>
+			<h:column>
+			    <f:facet name="header">CNPJ</f:facet>
+			    <h:outputText value="#{filialBean.formatarCNPJ(filAtual.cnpj)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Logradouro</f:facet>
+					<h:outputText value="#{filAtual.endereco.logradouro}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Numero</f:facet>
+					<h:outputText value="#{filAtual.endereco.numero}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Bairro</f:facet>
+						<h:outputText value="#{filAtual.endereco.bairro}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cidade</f:facet>
+					<h:outputText value="#{filAtual.endereco.cidade}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cep</f:facet>
+				<h:outputText value="#{filialBean.formatarCEP(filAtual.endereco.cep)}" />	
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandButton 
+					action="#{filialBean.carregarFilial(filAtual)}" 
+					value="Editar"/>	
+				<h:commandButton action="#{filialBean.deletar(filAtual)}" 
+					value="Excluir" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</body> 
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome: " for="nome" />
+			<h:inputText value="#{funcionarioBean.funcionario.nome}" id="nome" required="true"/>
+			<h:outputLabel value="Idade  " for="idade" />
+			<h:inputText value="#{funcionarioBean.funcionario.idade}" id="idade" required="true"/>
+			
+			<h:outputLabel value="CPF: " for="cpf" />
+			<h:inputText value="#{funcionarioBean.funcionario.cpf}" id="cpf" required="true" readonly="#{funcionarioBean.estado}">
+			    <f:validateLength minimum="11" maximum="11"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Salario: " for="salario" />
+			<h:inputText value="#{funcionarioBean.funcionario.salario}" id="salario" required="true"/>		
+			
+			<h:outputLabel value="Logradouro: " for="logradouro" />
+			<h:inputText value="#{funcionarioBean.funcionario.endereco.logradouro}" id="logradouro" required="true"/>
+			<h:outputLabel value="Numero: " for="numero" />
+			<h:inputText value="#{funcionarioBean.funcionario.endereco.numero}" id="numero" required="true"/>
+			<h:outputLabel value="Bairro: " for="bairro" />
+			<h:inputText value="#{funcionarioBean.funcionario.endereco.bairro}" id="bairro" required="true"/>
+			<h:outputLabel value="Cidade: " for="cidade" />
+			<h:inputText value="#{funcionarioBean.funcionario.endereco.cidade}" id="cidade" required="true"/>
+			<h:outputLabel value="CEP: " for="cep" />
+			<h:inputText value="#{funcionarioBean.funcionario.endereco.cep}" id="cep" required="true">
+				<f:validateLength minimum="8" maximum="8"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Filial: " for="filial"/>
+			<h:selectOneMenu value="#{funcionarioBean.idFilial}">			
+				<f:selectItems value="#{funcionarioBean.filiais}" var="filAtual"
+						itemLabel="#{filAtual.nome}" itemValue="#{filAtual.id}" />			
+			</h:selectOneMenu>
+			
+			<br/>
+			
+			<h:commandButton action="#{funcionarioBean.gravar()}" value="Gravar Funcionario" rendered="#{!funcionarioBean.edicao}" />
+			<h:commandButton action="#{funcionarioBean.atualizar()}" value="Atualizar Funcionario" rendered="#{funcionarioBean.edicao}" />
+			
+			<br/>
+		</h:panelGrid>
+	</h:form>
+	
+	<h:messages />
+	
+	<h:form>
+		<h:dataTable value="#{funcionarioBean.funcionarios}" var="funAtual" border="1">
+			<h:column>
+				<f:facet name="header"> Nome </f:facet>
+				<h:outputText value="#{funAtual.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"> Idade </f:facet>
+				<h:outputText value="#{funAtual.idade}" />
+			</h:column>
+			<h:column>
+			    <f:facet name="header">CPF</f:facet>
+			    <h:outputText value="#{funcionarioBean.formatarCPF(funAtual.cpf)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"> Salario </f:facet>
+				<h:outputText value="#{funAtual.salario}">
+				<f:convertNumber type="currency" currencyCode="BRL" locale="pt_BR" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Logradouro</f:facet>
+				<h:outputText value="#{funAtual.endereco.logradouro}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Numero</f:facet>
+					<h:outputText value="#{funAtual.endereco.numero}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Bairro</f:facet>
+				<h:outputText value="#{funAtual.endereco.bairro}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cidade</f:facet>
+				<h:outputText value="#{funAtual.endereco.cidade}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cep</f:facet>
+				<h:outputText value="#{funcionarioBean.formatarCEP(funAtual.endereco.cep)}" />	
+			</h:column>
+			<h:column>
+				<f:facet name="header">Filial</f:facet>
+				<h:outputText value="#{funAtual.filial.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandButton 
+					action="#{funcionarioBean.carregarFuncionario(funAtual)}" 
+					value="Editar"/>		
+				<h:commandButton 
+					action="#{funcionarioBean.deletar(funAtual)}" 
+					value="Excluir"/>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</body> 
+</html>
