@@ -4,6 +4,11 @@ Este projeto é uma aplicação web desenvolvida com JavaServer Faces (JSF) inte
 ## Descrição
 Uma aplicação web utilizando JSF para a criação de interfaces ricas e interativas, conectada a um banco de dados para armazenar e gerenciar informações de forma eficiente. O sistema é projetado para fornecer uma experiência de usuário fluida e responsiva, com funcionalidades de CRUD (Criar, Ler, Atualizar, Deletar) para diferentes entidades.
 
+## Diagrama de Classe
+O Modelo e o Mapeamento das classes foram feitos de acordo com o Diagrama de Classes.  
+  
+![Image and Preview Themes on the toolbar](casodeuso.png)
+
 ## Tecnologias Utilizadas
 Front-end:  
 ![JavaServer Faces](https://img.shields.io/badge/JavaServer_Faces-CC2927?style=for-the-badge&logo=JavaServer_Faces%20sql%20server&logoColor=white)
