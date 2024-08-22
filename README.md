@@ -42,6 +42,9 @@ Este projeto está licenciado sob a licença MIT.
 ## Contribuição
 Sinta-se à vontade para contribuir com melhorias e correções. Para isso, faça um fork do repositório, crie uma branch para suas alterações, e envie um pull request.
 
-## Sobre Mim
-Olá, eu sou a Suelen! 👋
-Sou desenvolvedora apaixonada por criar sistemas web eficientes e funcionais. Estou sempre buscando novos desafios e oportunidades para aplicar e expandir minhas habilidades em desenvolvimento.
+## Colaboradores
+Olá, eu sou a Suelen! 👋  
+- **[Suelen Medina](https://github.com/suelenmedinape)**
+
+Olá, eu sou o Jhonata! 👋
+- **[Jhonata Castro](https://github.com/JhonnyBCastro)**
