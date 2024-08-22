@@ -42,7 +42,7 @@ Este projeto está licenciado sob a licença MIT.
 ## Contribuição
 Sinta-se à vontade para contribuir com melhorias e correções. Para isso, faça um fork do repositório, crie uma branch para suas alterações, e envie um pull request.
 
-## Colaboradores
+## Contribuidores
 Olá, eu sou a Suelen! 👋  
 - **[Suelen Medina](https://github.com/suelenmedinape)**
 
