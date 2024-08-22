@@ -23,7 +23,7 @@ Frameworks e Bibliotecas:
 ![Eclipse](https://img.shields.io/badge/Eclipse-FE7A16.svg?style=for-the-badge&logo=Eclipse&logoColor=white) ![JBoss](https://img.shields.io/badge/JBoss-FE7A16.svg?style=for-the-badge&logo=JBoss&logoColor=white) ![JPA](https://img.shields.io/badge/JPA-FE7A16.svg?style=for-the-badge&logo=JPA&logoColor=white) ![WildFly](https://img.shields.io/badge/WildFly-FE7A16.svg?style=for-the-badge&logo=Wildfly&logoColor=white)
  
 ## Funcionalidades
-Gerenciamento de Funcionários: Adicionar, editar, excluir registros de funcionários e filtrar os funcionários pela cidade.  
+Gerenciamento de Funcionários: Adicionar, editar, excluir registros de funcionários e filtrar os funcionários de acordo com a cidade.  
 Gerenciamento de Filiais: Adicionar, editar, excluir registros de filiais e filtrar as filiais.  
 Relatórios: Gerar relatórios dos funcionarios de acordo com a faixa salario min e max.  
 
