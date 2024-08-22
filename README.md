@@ -36,11 +36,9 @@ Relatórios: Gerar relatórios dos funcionarios de acordo com a faixa salario mi
 ## Uso
 Acesse a aplicação através do navegador web em http://localhost:8080/SeuProjeto.
 Navegue pelas diferentes seções para gerenciar funcionários, filiais e gerar relatórios.
+
 ## Licença
 Este projeto está licenciado sob a licença MIT.
-
-## Contribuição
-Sinta-se à vontade para contribuir com melhorias e correções. Para isso, faça um fork do repositório, crie uma branch para suas alterações, e envie um pull request.
 
 ## Contribuidores
 Olá, eu sou a Suelen! 👋  
