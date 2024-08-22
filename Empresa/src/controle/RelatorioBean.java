@@ -23,7 +23,7 @@ public class RelatorioBean {
 	
 	private List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private Double valorMin, valorMax;
-	private Boolean todasFiliais = false; /* ???? */
+	private Boolean todasFiliais = false;
 	private String nomeFilial;
 	private Long idFilial=0L;
 	private Double auxiliar;

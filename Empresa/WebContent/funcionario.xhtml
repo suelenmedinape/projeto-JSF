@@ -51,8 +51,17 @@
 	
 	<h:messages />
 	
+		<h:form>
+		<h:panelGrid>
+			<h:outputLabel value="Digite o nome da cidade:" />
+			<h:inputText value="#{funcionarioBean.nomeCidade}" required="true" />
+			<h:commandButton action="#{funcionarioBean.verificarFiltro()}" value="Listar" />
+		</h:panelGrid>
+
+	</h:form>
+	
 	<h:form>
-		<h:dataTable value="#{funcionarioBean.funcionarios}" var="funAtual" border="1">
+		<h:dataTable value="#{funcionarioBean.filtrar()}" var="funAtual" border="1">
 			<h:column>
 				<f:facet name="header"> Nome </f:facet>
 				<h:outputText value="#{funAtual.nome}" />
@@ -67,7 +76,7 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header"> Salario </f:facet>
-				<h:outputText value="#{funAtual.salario}">
+				<h:outputText value="#{funAtual.salario}" >
 				<f:convertNumber type="currency" currencyCode="BRL" locale="pt_BR" />
 				</h:outputText>
 			</h:column>

@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.jboss.resteasy.spi.touri.MappedBy;
+
 @Entity
 public class Funcionario {
 

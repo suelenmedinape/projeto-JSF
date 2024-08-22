@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.jboss.resteasy.spi.touri.MappedBy;
+
 @Entity
 public class Filial {
 	
@@ -20,7 +22,7 @@ public class Filial {
 	@OneToOne
     private Endereco endereco = new Endereco();
 	
-    @OneToMany
+    @OneToMany(mappedBy = "filial")
     private List<Funcionario> funcionarios;
 	
 	public Filial() {}

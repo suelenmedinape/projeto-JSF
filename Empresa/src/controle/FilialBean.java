@@ -27,9 +27,12 @@ public class FilialBean {
 	private Filial filial = new Filial();
 	private List<Filial> filiais = new ArrayList<Filial>();
 	private List<Endereco> enderecos = new ArrayList<Endereco>();
-	private Long idFuncionario=0L;
 	
 	private Boolean edicao = false;
+	private String nomeFilial;
+	private Boolean filtrarOuNao = false;
+	private Long idFilial;
+	
 	
 	@PostConstruct
 	public void inicializar() {
@@ -48,6 +51,8 @@ public class FilialBean {
 		FacesContext.getCurrentInstance().addMessage("", 
 				new FacesMessage("Filial Gravada com Sucesso!"));
 		atualizarLista();
+		filtrarOuNao = false;
+		filtrar();
 	}
 	
 	public void atualizar() {
@@ -60,6 +65,10 @@ public class FilialBean {
 		edicao = false;
 	}
 	
+	public void verificaFiltro() {
+		filtrarOuNao = true;
+	}
+	
 	public void carregarFilial(Filial f) {
 		filial = f;
 		edicao = true;
@@ -69,13 +78,15 @@ public class FilialBean {
 		try {
 			filialService.remove(f);
 			atualizarLista();
-		} catch (Exception e) {
+		}catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage("", 
-					new FacesMessage("Não Pode Ser Excluido"));
+					new FacesMessage("Filial nao pode ser apagada."));
 		}
+		
+		
 	}
 	
-	// Método para formatar o CNPJ para exibição
+	// Mï¿½todo para formatar o CNPJ para exibiï¿½ï¿½o
     public String formatarCNPJ(String cnpj) {
         if (cnpj != null && cnpj.length() == 14) {
             return cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "." + cnpj.substring(5, 8) + "/" + cnpj.substring(8, 12) + "-" + cnpj.substring(12, 14);
@@ -83,7 +94,7 @@ public class FilialBean {
         return cnpj;
     }
 
-    // Método para remover a formatação do CNPJ ao salvar
+    // Mï¿½todo para remover a formataï¿½ï¿½o do CNPJ ao salvar
     public String removerFormatacaoCNPJ(String cnpj) {
         if (cnpj != null) {
             return cnpj.replaceAll("[./-]", "");
@@ -91,15 +102,22 @@ public class FilialBean {
         return cnpj;
     }
     
-    // Método para formatar o CEP para exibição
+    // Mï¿½todo para formatar o CEP para exibiï¿½ï¿½o
     public String formatarCEP(String cep) {
         if (cep != null && cep.length() == 8) {
             return cep.substring(0, 5) + "-" + cep.substring(5, 8);
         }
         return cep;
     }
+    
+    public List<Filial> filtrar() {
+    	if(filtrarOuNao) {   		
+    		filiais = filialService.listarPorFilias(nomeFilial); 
+    	}  	
+    	return filiais;
+    }
 
-    // Método para remover a formatação do CEP ao salvar
+    // Mï¿½todo para remover a formataï¿½ï¿½o do CEP ao salvar
     public String removerFormatacaoCEP(String cep) {
         if (cep != null) {
             return cep.replaceAll("-", "");
@@ -137,6 +155,22 @@ public class FilialBean {
 
 	public void setEdicao(Boolean edicao) {
 		this.edicao = edicao;
+	}
+
+	public String getNomeFilial() {
+		return nomeFilial;
+	}
+
+	public void setNomeFilial(String nomeFilial) {
+		this.nomeFilial = nomeFilial;
+	}
+
+	public Boolean getFiltrarOuNao() {
+		return filtrarOuNao;
+	}
+
+	public void setFiltrarOuNao(Boolean filtrarOuNao) {
+		this.filtrarOuNao = filtrarOuNao;
 	}
 	
 	
